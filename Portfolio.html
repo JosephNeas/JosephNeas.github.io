@@ -2,22 +2,53 @@
 <html>
 <body>
 <style >
-	.header {margin-left:  50px;} 
-	#links {margin-left: 1100px;}
-	.paragraphs {margin-left: 100px; margin-right: 250px})
+	.paragraphs {margin-left: 100px; margin-right: 120px; text-align: center;}
+	* {
+	  box-sizing: border-box;
+	}
+
+	body {
+	  margin: 0;
+	}
+	.header {
+	  padding: 30px;
+	  text-align: center;
+	  background: white;
+	  font-family: "Courier New";
+	}
+	.topnav {
+	  overflow: hidden;
+	  background-color: #333;
+	}
+	.topnav a {
+	  float: left;
+	  display: block;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-family: impact;
+	}
+	.topnav a:hover {
+	  background-color: #ddd;
+	  color: black;
+	}
 
 </style>
-<h1 class="header">Joe Neas</h1>
-<a id="links" href="Website.html">Home</a>
-<a href="Resume.html">Resume</a>
-<a href="AboutMe.html">About Me</a>
+<h1 class="header">PortFolio</h1>
+<div class="topnav">
+  <a href="Website.html" style="margin-left: 25px">Home</a>
+  <a href="Resume.html"  style="float:right; margin-right: 25px">Resume</a>
+  <a href="Portfolio.html"  style="float:right">Portfolio</a>
+  <a href="AboutMe.html"  style="float:right">About Me</a>
+</div>
 
 <h2 id="header">Project 1</h2>
-<p> I looked thorugh a database of nba players to see how 3 pointers contributed to the points as a whole. I did this by querying through database I found pulling the total of 3 pointers and the overall total points. Here is what I found: </p>
+<p class="paragraphs"> I looked through a database of nba players to see how 3 pointers contributed to the points as a whole. I did this by querying through database I found pulling the total of 3 pointers and the overall total points. Here is what I found: </p>
 
 <img src="https://64.media.tumblr.com/be841940c5006e1cb8b9cec976cafe10/566c9cabcd145566-31/s640x960/f86a2b36334fe306dd231ef2498d0bdffbbabbee.jpg" alt="Project 1" width="1000" height="300">
 
-<p>
+<p class="paragraphs">
 	As you can see when the total points are down, the 3 pointers are only take a slight drop. This means that this huge difference in points is coming else where from fieldgoals to free throws.
 </p>
 

@@ -1,16 +1,50 @@
 <!DOCTYPE html>
 <html>
 <style>
-	#links {margin-left: 1100px;}
-	#header {margin-left:  50px;}
-	.paragraphs {margin-left: 100px; margin-right: 250px})
-</style>
-<body>
-<h1 id="header">Joe Neas</h1>
+	.paragraphs {margin-left: 100px; margin-right: 120px; text-align: center;})
+	* {
+	  box-sizing: border-box;
+	}
 
-<a id="links" href="Resume.html">Resume</a>
-<a href="AboutMe.html">About Me</a>
-<a href="Portfolio.html">Portfolio</a>
+	body {
+	  margin: 0;
+	}
+.header {
+	  padding: 30px;
+	  text-align: center;
+	  background: white;
+	  font-family: "Courier New";
+	}
+	.topnav {
+	  overflow: hidden;
+	  background-color: #333;
+	}
+
+	.topnav a {
+	  float: left;
+	  display: block;
+	  color: #f2f2f2;
+	  text-align: center;
+	  padding: 14px 16px;
+	  text-decoration: none;
+	  font-family: impact;
+	}
+
+	/* Change color on hover */
+	.topnav a:hover {
+	  background-color: #ddd;
+	  color: black;
+	}
+
+</style>
+<h1 class="header">Joseph Neas</h1>
+<div class="topnav">
+  <a href="Website.html" style="margin-left: 25px">Home</a>
+  <a href="Resume.html"  style="float:right; margin-right: 25px">Resume</a>
+  <a href="Portfolio.html"  style="float:right">Portfolio</a>
+  <a href="AboutMe.html"  style="float:right">About Me</a>
+</div>
+
 <p class="paragraphs"> Hi there! Welcome to my website. Here you can find my resume, portfolio and learn a little about who I am </p>
 <ul>
 
