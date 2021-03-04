@@ -9,29 +9,23 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
 
     <title>Portfolio | Joseph Neas</title>
+    <style>
+      .banner-area {
+        padding: 75px;
+      }
+      .bootstrap-container{
+      }
+
+    </style>
 
   </head>
   <body> 
 
 
     <div class="container-fluid mt-4">
-      <nav>
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <ul class="nav nav-pills justify-content-end fixed shadow p-3 mb-5 bg-white rounded mr-auto mt-2 mt-lg-0">
-    <div class="container my-4">
-      <h1>Joseph Neas</h1>
-      <p class="lead">
-        Currenlty an inforamtion Science student with over 3 years of coding experince with Python, Pandas and SQL as well as base knowledge of HTML. 
-      </p>
-    </div>
-
-
-    <div class="container">
-      <nav>
-        <ul class="nav nav-pills">
+      <nav class="navbar fixed-top shadow-sm p-3 mb-5 bg-white rounded">
+        <h3>Joseph Neas</h3>
+        <ul class="nav nav-pills  justify-content-end">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="Redesign.html">Home</a>
           </li>
@@ -39,21 +33,35 @@
             <a class="nav-link" href="AboutMe.html">About Me</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="Portfolio.html">Porfolio</a>
+            <a class="nav-link" href="Portfolio.html">Portfolio</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="true">Contact Me</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="mailto:jknemail30@gmail.com">Email</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="https://www.linkedin.com/in/joseph-neas-54b04b205/">LinkedIn</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="https://github.com/JosephNeas">GitHub</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="ContactMe.html">Contact Me</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Inspiration.html">Inspiration</a>
           </li>
         </ul>
       </nav>
     </div>
+
+    <section class="banner-area" style="background-color: aliceblue">
+        <div class="container">
+          <div class="row fullscreen align-items-center justify-content-between">
+            <div class="col-lg-6 col-md-6 col-xs-6 banner-left">
+              <h5>Hi, I'm</h5>
+
+              <h2 class="mt-10 mb-20">Joseph Neas</h2>
+              <p>
+                A third year information Science Student with minor in Business
+              </p>
+            </div>
+            <div class="col-lg-4 col-md-8 col-xs-8 banner-right align-self-flex-center">
+              <img src="https://64.media.tumblr.com/eb428769b228699bc3279a002e838ea6/d36872629d0b6da5-c5/s540x810/04b3b2c2728926da156a7fb9cb582c55abc023d2.jpg" style="width:auto;height:auto;max-width:75%;max-height:60%">
+            </div>
+          </div>
+        </div>
+      </section>
 
     <div class="container mt-4 mb-3">
       <div class="row">
@@ -67,7 +75,7 @@
                   Help businesses and families move throughout Colorado.
                 </div>
                 <ul>
-                  <li>Package and box valueable items</li>
+                  <li>Package and box valuable items</li>
                   <li>Plan what to move and how by working with the client</li>
                   <li>Organize each truck to utilize the space</li>
                 </ul>
@@ -101,17 +109,45 @@
         </div>
       </div>
     </div>
-    
-    <p class="container">
-      Website that inspired me:
-      <div class="container">
-        <ul>
-          <li><a href="https://harrisonjansma.com/">Portfolio 1</a> Really love the simple design he went with for his site. Also really like the sliders he use to showcase his confidence with each of his skills.
-          </li>
-        </ul>
-      </div>
-    </p>
 
+    <div class="container" style="padding-top: 25px; padding-bottom: 35px; background-color: darkgrey;">
+      <div class="row fullscreen align-items-center justify-content-between">
+        <h2> Bootstrap I used:</h2>
+          <div class="container">
+            <ul>
+              <li><a href="https://getbootstrap.com/docs/5.0/components/navs-tabs/#horizontal-alignment">Navigation Bar Horizontal Alignment</a>: Used this to push all of my pages l inks to the left site of my navigation bar.
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/docs/5.0/components/navs-tabs/#pills">Navigation Bar Pills</a>: Used this to give my navigation buttons a pop to them and to let users know which page they are on.
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/docs/5.0/components/navs-tabs/#pills-with-dropdowns">Form Controls</a>: Used this for my contact me to take in input from users to contact me. 
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/docs/5.0/components/navbar/#placement">Navigation Bar Placement</a>: Used this to make my navigation bar stick to the top of the screen as you scroll up and down.
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/docs/5.0/components/card/">Cards</a>: Used this to make my work experience and skills cards.
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/docs/5.0/utilities/shadows/">Shadows</a>: Used this to give my navigation bar a very small shadow.
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/docs/5.0/utilities/spacing/">Spacing</a>: Used this to space out my cards, paragraphs, headings, etc... throughout my website.
+              </li>
+              <li>
+                <a href="https://getbootstrap.com/docs/5.0/layout/columns/">Columns</a>: Used this to make two seperate columns for my home page with the work experience card and the skills card.
+              </li>
+            </ul>
+          </div>
+      </div>
+    </div>
+
+    <div style="padding-top: 35px">
+    </div>
+
+
+      
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
