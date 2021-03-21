@@ -15,7 +15,7 @@
   <body>
     <div class="container" style="padding-bottom: 70px padding-top: 40px text-indent: 50px">
         <h2> Denver Police Data </h2>
-        <p style="text-indent: 50px">This is the database I used to get this information <a href="https://canvas.colorado.edu/courses/70121/files/30008883?wrap=1"> Canvas</a>. This shows Denver's police data through the month of November in 2012. I wanted to look at each arrest to see if it involved a vehicle stop or just a pedestrian stop. I did this by filtering the data to look through each precinct and if they made an arrest. I then looked at if this arrest was a vehicular stop and counted up how many arrests there were in total over all precincts. I then did the same for pedestrian stops getting the total as well. I now have data that shows the total of pedestrian and vehicle arrests. Here is my <a href="https://github.com/JosephNeas/JosephNeas.github.io/blob/master/Assignment%208%20code.ipynb">code</a>.</p>
+        <p style="text-indent: 50px">Our teacher filtered Denver from this a database logging police stops across the US <a href="https://openpolicing.stanford.edu/data/">OPEN POLICING DATA</a>. This is the database he made that I used to get this my own data for my chart <a href="https://canvas.colorado.edu/courses/70121/files/30008883?wrap=1"> CANVAS</a>.  This shows Denver's police data through the month of November in 2012. I wanted to look at each arrest to see if it involved a vehicle stop or just a pedestrian stop. I did this by filtering the data to look through each precinct to see if they made an arrest. If they did, I then looked at if this arrest was a vehicular or pedestrian stop. I then counted up how many arrests there were in total over all precincts dividing them into vehicular or pedestrian. I counted up the totals from both of these types of stops. The data I got is shown below with the total of vehicular arrests versus pedestrian arrests. Here is my <a href="https://github.com/JosephNeas/JosephNeas.github.io/blob/master/Assignment%208%20code.ipynb">CODE</a> that I used to filter out pedestrian and vehicular arrests.</p>
     </div>
 
     <div class="container" style="padding-bottom: 30px">
@@ -24,7 +24,7 @@
          <canvas id="Arrests" width="100" height ="25"></canvas>
     </div>
 
-    <div class="container">
+    <div class="container" style="padding-bottom: 25px">
         <script type="text/javascript">
             $.getJSON("arrests.json", function(data_from_file){
                 var ctx = document.getElementById('Arrests').getContext('2d');
@@ -70,7 +70,7 @@
 
     <div class="container" style="padding-bottom: 70px padding-top: 40px text-indent: 50px">
         <p style="text-indent: 50px">
-            This graph shows that it is almost two times more likely to be arrested from a vehicle stop than walking as a pedestrian. My theory for why this is is because there might be more potential cause for arrest while in a car. What I mean by this, is when walking around, you can't carry as much as you can transport in a car. Since this is the case, I believe more people might carry illegal products in their car then when walking as a pedestrian. Another theory could be there you are more likely to be stopped while in a car. This is because you can break the law easier in a car with going over the speed limit or running a red light. This is probable cause to pull someone over. This could then lead to an arrest with the person having warrants or the police officer searching the car. A question I would then like to ask is "in which precincts are there the most pedestrian arrests?". I would like to know this to see then further research this area to see why more people would be arrested while walking around rather in a car.
+            This graph shows that it is almost two times more likely to be arrested from a vehicle stop than walking as a pedestrian. My theory for why this is is because there might be more potential cause for arrest while in a car. What I mean by this, is when walking around, you can't carry as much as you can transport in a car. Since this is the case, I believe more people might carry illegal products in their car then when walking as a pedestrian. Another theory could be that you are more likely to be stopped while in a car. This is because you can break the law easier in a car with going over the speed limit or running a red light. This is probable cause to pull someone over. This could then lead to an arrest with the person having warrants or the police officer searching the car finding illegal products leading to an arrest. A further question I would like to ask is "in which precincts are there the most pedestrian arrests?". I would like to know this to then do further research of why this precinct is making more pedestrian arrests rather than vehicular arrests. "Is it because it is a low-income area so people can't drive?" or "Is it because this area has more active people?"...
         </p>
     </div>
 
