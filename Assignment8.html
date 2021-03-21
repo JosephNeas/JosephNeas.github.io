@@ -15,190 +15,63 @@
   <body>
     <div class="container" style="padding-bottom: 70px padding-top: 40px text-indent: 50px">
         <h2> Denver Police Data </h2>
-        <p style="text-indent: 50px">This is the database I used to get this information <a href="https://canvas.colorado.edu/courses/70121/files/30008883?wrap=1"> Canvas</a>. This shows Denver's police data through the month of November in 2012. I wanted to look at each arrest to see if it involved a vehicle stop or just a pedestrian stop. I did this by filtering the data to look through each precinct and if they made an arrest. I then looked at if this arrest was a vehicular stop and counted up how many there were. I then did the same for pedestrian stops getting the total as well. I now have data that shows each precincts arrest count showing if it was either a vehicular or pedestrian stop.</p>
+        <p style="text-indent: 50px">This is the database I used to get this information <a href="https://canvas.colorado.edu/courses/70121/files/30008883?wrap=1"> Canvas</a>. This shows Denver's police data through the month of November in 2012. I wanted to look at each arrest to see if it involved a vehicle stop or just a pedestrian stop. I did this by filtering the data to look through each precinct and if they made an arrest. I then looked at if this arrest was a vehicular stop and counted up how many arrests there were in total over all precincts. I then did the same for pedestrian stops getting the total as well. I now have data that shows the total of pedestrian and vehicle arrests. Here is my <a href="https://github.com/JosephNeas/JosephNeas.github.io/blob/master/Assignment%208%20code.ipynb">code</a>.</p>
     </div>
 
     <div class="container" style="padding-bottom: 30px">
     </div>
-    <div class="container align-items-center" >
-        <div class="row">
-            <div class="col-6 chart">
-                <canvas id="Vehicular" width="100" height ="50"></canvas>
-            </div>
-            <div class="col-6 chart">
-                <canvas id="Pedestrian" width="100" height ="50"></canvas>
-            </div>
-        </div>
+    <div class="container align-items-center">
+         <canvas id="Arrests" width="100" height ="25"></canvas>
     </div>
 
     <div class="container">
         <script type="text/javascript">
             $.getJSON("arrests.json", function(data_from_file){
-                var ctx = document.getElementById('Vehicular').getContext('2d');
-                var myChart = new Chart(ctx, {
-                    type: 'pie',
-                    data: {
-                        labels: ['Denver', 'Colorado Springs', 'Aurora', 'Fort Collins', 'Lakewood'],
-                        datasets: [{
-                            label: 'Arrest Count',
-                            data: [data_from_file["vehicle_precinct_counter"]],
-                            backgroundColor: [
-                                'rgba(255, 75, 75, .6)',
-                                'rgba(54, 162, 235, .6)',
-                                'rgba(255, 206, 86, .6)',
-                                'rgba(75, 192, 192, .6)',
-                                'rgba(153, 102, 255, .6)',
-                            ],
-                            borderColor: [
-                                'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
-                            ],
-                            hoverBackgroundColor: [
-                                'rgba(255, 75, 75, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
-                            ], 
-                            borderWidth: 2,
-                            hoverBorderWidth:4,
-                            hoverBorderColor:'rgba(0, 0, 0, 1)'
-                        }]
-                    },
-                    options: {
-                        tooltips: {
-                            intersect: false,
-                        },
-                        title: {
-                            text: "Vehicular Arrests",
-                            fontColor: "black",
-                            fontSize: 30,
-                            display: true,
-                        },
-                        legend: {
-                            display: false,
-                        },
-                    }
-                });
-            })
-        </script>
-    </div>
-
-    <div class="container">
-        <script type="text/javascript">
-            var ctx = document.getElementById('Pedestrian').getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels:,
-                    datasets: [{
-                        label: 'Pedestrian Count',
-                        data: [data_from_file["pedestrian_precinct_counter"]],
-                        backgroundColor: [
-                            'rgba(255, 75, 75, .6)',
-                            'rgba(54, 162, 235, .6)',
-                            'rgba(255, 206, 86, .6)',
-                            'rgba(75, 192, 192, .6)',
-                            'rgba(153, 102, 255, .6)',
-                        ],
-                        borderColor: [
-                            'rgba(0, 0, 0, .6)',
-                            'rgba(0, 0, 0, .6)',
-                            'rgba(0, 0, 0, .6)',
-                            'rgba(0, 0, 0, .6)',
-                            'rgba(0, 0, 0, .6)',
-                        ],
-                        hoverBackgroundColor: [
-                            'rgba(255, 75, 75, 1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                        ], 
-                        borderWidth: 2,
-                        hoverBorderWidth:4,
-                        hoverBorderColor:'rgba(0, 0, 0, 1)'
-                    }]
-                },
-                options: {
-                    tooltips: {
-                        intersect: false,
-                    },
-                    title: {
-                        text: "Pedestrian Arrests",
-                        fontColor: "black",
-                        fontSize: 30,
-                        display: true,
-                    },
-                    legend: {
-                        display: false,
-                    },
-                }
-            });
-        </script>
-    </div>
-
-    <div class="container align-items-center">
-        <canvas id="Arrests" width="100" height ="30"></canvas>
-    </div>
-
-    <div class="container">
-        <script type="text/javascript">
-            $.getJSON("some_data.json", function(data_from_file){
                 var ctx = document.getElementById('Arrests').getContext('2d');
+                console.log("hey you got data")
+                console.log(data_from_file)
+
                 var myChart = new Chart(ctx, {
                     type: 'pie',
                     data: {
-                        labels: ['Denver', 'Colorado Springs', 'Aurora', 'Fort Collins', 'Lakewood'],
+                        labels: ['Total Vehicle Arrests','Total Pedestrian Arrests'],
                         datasets: [{
-                            label: 'Total Arrests',
-                            data: [data_from_file["pedestrian_precinct_counter"]],
+                            labels: 'Vehicle Count',
+                            data: [data_from_file["y"], data_from_file["z"]],
                             backgroundColor: [
-                                'rgba(255, 75, 75, .6)',
-                                'rgba(54, 162, 235, .6)',
-                                'rgba(255, 206, 86, .6)',
-                                'rgba(75, 192, 192, .6)',
-                                'rgba(153, 102, 255, .6)',
+                                'rgba(255, 0, 0, .6)',
+                                'rgba(65, 63, 191, .6)'
                             ],
                             borderColor: [
                                 'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
-                                'rgba(0, 0, 0, .6)',
+                                'rgba(0, 0, 0, .6)'
                             ],
                             hoverBackgroundColor: [
                                 'rgba(255, 75, 75, 1)',
-                                'rgba(54, 162, 235, 1)',
-                                'rgba(255, 206, 86, 1)',
-                                'rgba(75, 192, 192, 1)',
-                                'rgba(153, 102, 255, 1)',
+                                'rgba(54, 162, 235, 1)'
                             ], 
                             borderWidth: 2,
                             hoverBorderWidth:4,
-                            hoverBorderColor:'rgba(0, 0, 0, 1)'
+                            hoverBorderColor:'rgba(0, 0, 0, 1)',
                         }]
                     },
                     options: {
-                        tooltips: {
-                            intersect: false,
-                        },
                         title: {
-                            text: "Total Arrests",
+                            text: "Vehicle vs Pedestrian Arrests",
                             fontColor: "black",
                             fontSize: 30,
                             display: true,
-                        },
-                        legend: {
-                            display: false,
                         },
                     }
                 });
             })
         </script>
+    </div>
+
+    <div class="container" style="padding-bottom: 70px padding-top: 40px text-indent: 50px">
+        <p style="text-indent: 50px">
+            This graph shows that it is almost two times more likely to be arrested from a vehicle stop than walking as a pedestrian. My theory for why this is is because there might be more potential cause for arrest while in a car. What I mean by this, is when walking around, you can't carry as much as you can transport in a car. Since this is the case, I believe more people might carry illegal products in their car then when walking as a pedestrian. Another theory could be there you are more likely to be stopped while in a car. This is because you can break the law easier in a car with going over the speed limit or running a red light. This is probable cause to pull someone over. This could then lead to an arrest with the person having warrants or the police officer searching the car. A question I would then like to ask is "in which precincts are there the most pedestrian arrests?". I would like to know this to see then further research this area to see why more people would be arrested while walking around rather in a car.
+        </p>
     </div>
 
     <div class="container" style="padding-bottom: 60px">
