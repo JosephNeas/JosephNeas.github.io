@@ -17,33 +17,77 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					Slide 1
-					<h1>Big header</h1>
+					Here is my animation slide
 					<p style="font-weight:bold;">Custom text styles</p>
 					<img src="https://media.giphy.com/media/MF8H7YGMlwSm4/giphy.gif">
 				</section>
 				<section>This is my emoji slide
 				<p style="font-size:100px">&#129409;</p>
 				</section>
+				
 				<section>
-					<h3>
-						Code Slide
-					</h3>
-					<pre><code data-trim data-noescape id="highlight-theme">
-						def Coding(M,O,B):
-							return M+O+B
-					</code>
-					</pre>
+					<section>
+						<h3> Vertical Slides </h3>
+						<p>
+							I will be showing you how to do vertical slides. This is a useful tool to group together same topics such as this into a vertical stack that won't fit in with the next horizontal slide. It allows for more organization within a presentation.
+						</p>
+					</section>
+
+					<section>
+						<h3>This is how I made the vertical slides</h3>
+						<pre><code data-trim data-line-numbers=2-4><script type="text/template">
+							<section>
+								<section>
+									<!-- First Vertical Slide -->						
+								</section>
+								<section>
+									<!-- Second Vertical Slide -->
+								</section>
+							</section>
+							</script>
+						</code></pre>
+						<p>
+							What I am highlighting above is this slide 
+						</p>
+					</section>
+
+					<section>
+						<h3>
+							Here is my second vertical slide
+						</h3>
+						<pre><code data-trim data-line-numbers=5-7><script type="text/template">
+							<section>
+								<section>
+									<!-- First Vertical Slide -->						
+								</section>
+								<section>
+									<!-- Second Vertical Slide -->
+								</section>
+							</section>
+							</script>
+						</code></pre>
+						<p>
+							To do vertical slides, all you have to do is put a "section" in block of one "section"
+						</p>
+						<p>
+							Here is the documentaion for <a href="https://revealjs.com/vertical-slides/">vertical slides</a>
+						</p>
+					</section>
+
+					
 				</section>
+					
 				<section data-transition="convex">
-					<p>Suh Dude</p>
+					<h3>
+						Here is where I tested different fragments.
+					</h3>
 					<p class="fragment">Fade in</p>
 					<p class="fragment fade-in-then-semi-out">Semi-ed</p>
 					<span class="fragment fade-in">
 						<span class="fragment highlight-red">
 							<span class="fragment shrink">
 								<span class="fragment fade-out">
-						    	BIG BOY RED
+						    	BIG BOY RED with a fade in and out
 						    	</span>
 						    </span>
 						</span>
