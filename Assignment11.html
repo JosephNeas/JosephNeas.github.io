@@ -1,0 +1,399 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/white.min.css" id="theme">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+		<script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<div id="vis"></div>
+					<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega/v5.json",
+						  "description": "An example of a connected scatter plot, tracking changes in miles driven versus the price of gasoline.",
+						  "width": 800,
+						  "height": 300,
+						  "padding": 5,
+
+						  "config": {
+						    "axis": {
+						      "domain": false,
+						      "labelFontSize": 12,
+						      "labelFontWeight": "bold",
+						      "tickSize": 0
+						    }
+						  },
+
+						  "data": [
+						    {
+						      "name": "drive",
+						      "url": "https://vega.github.io/vega-datasets/data/driving.json"
+						    }
+						  ],
+
+						  "scales": [
+						    {
+						      "name": "x",
+						      "type": "linear",
+						      "domain": {"data": "drive", "field": "miles"},
+						      "range": "width",
+						      "nice": true,
+						      "zero": false,
+						      "round": true
+						    },
+						    {
+						      "name": "y",
+						      "type": "linear",
+						      "domain": {"data": "drive", "field": "gas"},
+						      "range": "height",
+						      "nice": true,
+						      "zero": false,
+						      "round": true
+						    },
+						    {
+						      "name": "align",
+						      "type": "ordinal",
+						      "domain": ["left", "right", "top", "bottom"],
+						      "range": ["right", "left", "center", "center"]
+						    },
+						    {
+						      "name": "base",
+						      "type": "ordinal",
+						      "domain": ["left", "right", "top", "bottom"],
+						      "range": ["middle", "middle", "bottom", "top"]
+						    },
+						    {
+						      "name": "dx",
+						      "type": "ordinal",
+						      "domain": ["left", "right", "top", "bottom"],
+						      "range": [-7, 6, 0, 0]
+						    },
+						    {
+						      "name": "dy",
+						      "type": "ordinal",
+						      "domain": ["left", "right", "top", "bottom"],
+						      "range": [1, 1, -5, 6]
+						    }
+						  ],
+
+						  "axes": [
+						    {
+						      "orient": "top",
+						      "scale": "x",
+						      "tickCount": 5,
+						      "grid": true
+						    },
+						    {
+						      "orient": "bottom",
+						      "scale": "x",
+						      "title": "Miles driven per capita each year",
+						      "ticks": false,
+						      "labels": false
+						    },
+						    {
+						      "orient": "left",
+						      "scale": "y",
+						      "tickCount": 5,
+						      "grid": true,
+						      "format": "$0.2f"
+						    },
+						    {
+						      "orient": "right",
+						      "scale": "y",
+						      "title": "Price of a gallon of gasoline (adjusted for inflation)",
+						      "ticks": false,
+						      "labels": false
+						    }
+						  ],
+
+						  "marks": [
+						    {
+						      "type": "line",
+						      "from": {"data": "drive"},
+						      "encode": {
+						        "enter": {
+						          "interpolate": {"value": "cardinal"},
+						          "x": {"scale": "x", "field": "miles"},
+						          "y": {"scale": "y", "field": "gas"},
+						          "stroke": {"value": "#000"},
+						          "strokeWidth": {"value": 3}
+						        }
+						      }
+						    },
+						    {
+						      "type": "symbol",
+						      "from": {"data": "drive"},
+						      "encode": {
+						        "enter": {
+						          "x": {"scale": "x", "field": "miles"},
+						          "y": {"scale": "y", "field": "gas"},
+						          "fill": {"value": "#fff"},
+						          "stroke": {"value": "#000"},
+						          "strokeWidth": {"value": 1},
+						          "size": {"value": 49}
+						        }
+						      }
+						    },
+						    {
+						      "type": "text",
+						      "from": {"data": "drive"},
+						      "encode": {
+						        "enter": {
+						          "x": {"scale": "x", "field": "miles"},
+						          "y": {"scale": "y", "field": "gas"},
+						          "dx": {"scale": "dx", "field": "side"},
+						          "dy": {"scale": "dy", "field": "side"},
+						          "fill": {"value": "#000"},
+						          "text": {"field": "year"},
+						          "align": {"scale": "align", "field": "side"},
+						          "baseline": {"scale": "base", "field": "side"}
+						        }
+						      }
+						    }
+						  ]
+						}
+						var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+						vegaEmbed("#vis", spec, opt);
+					</script>
+					<p style="font-size: 30px">This graph shows how many miles on average a person drives compared to the gas mileage price including inflation since 1959. As the years goes on there is an increase in the average miles driven until around 2005 where there is a slight pull back. The price of gas on the other hand goes up and down in a random pattern. The biggest peaks in gas were in 80-81 and 2008.</p>
+				</section>
+				<section>
+					<h3>This is how I did the previous slide highlighting what data I used and put in.</h3>
+					<pre><code data-trim data-line-numbers=4-9>
+						< section>
+							< div id="vis"></ div>
+							< script type="text/javascript">
+								var spec = {
+									"data": [
+									    {
+									      "name": "drive",
+									      "url": "https://vega.github.io/vega-datasets/data/driving.json"
+									    }
+								}
+							</ script>
+					</code></pre>
+				</section>
+				
+				<section>
+					<div id="SecondVis"></div>
+					<script type="text/javascript">
+						var spec = {
+						  "$schema": "https://vega.github.io/schema/vega/v5.json",
+						  "description": "A population pyramid showing U.S. demographics from 1850 to 2000.",
+						  "height": 300,
+						  "padding": 5,
+
+						  "signals": [
+						    { "name": "chartWidth", "value": 300 },
+						    { "name": "chartPad", "value": 20 },
+						    { "name": "width", "update": "2 * chartWidth + chartPad" },
+						    { "name": "year", "value": 2000,
+						      "bind": {"input": "range", "min": 1850, "max": 2000, "step": 10} }
+						  ],
+
+						  "data": [
+						    {
+						      "name": "population",
+						      "url": "https://vega.github.io/vega-datasets/data/population.json"
+						    },
+						    {
+						      "name": "popYear",
+						      "source": "population",
+						      "transform": [
+						        {"type": "filter", "expr": "datum.year == year"}
+						      ]
+						    },
+						    {
+						      "name": "males",
+						      "source": "popYear",
+						      "transform": [
+						        {"type": "filter", "expr": "datum.sex == 1"}
+						      ]
+						    },
+						    {
+						      "name": "females",
+						      "source": "popYear",
+						      "transform": [
+						        {"type": "filter", "expr": "datum.sex == 2"}
+						      ]
+						    },
+						    {
+						      "name": "ageGroups",
+						      "source": "population",
+						      "transform": [
+						        { "type": "aggregate", "groupby": ["age"] }
+						      ]
+						    }
+						  ],
+
+						  "scales": [
+						    {
+						      "name": "y",
+						      "type": "band",
+						      "range": [{"signal": "height"}, 0],
+						      "round": true,
+						      "domain": {"data": "ageGroups", "field": "age"}
+						    },
+						    {
+						      "name": "c",
+						      "type": "ordinal",
+						      "domain": [1, 2],
+						      "range": ["#d5855a", "#6c4e97"]
+						    }
+						  ],
+
+						  "marks": [
+						    {
+						      "type": "text",
+						      "interactive": false,
+						      "from": {"data": "ageGroups"},
+						      "encode": {
+						        "enter": {
+						          "x": {"signal": "chartWidth + chartPad / 2"},
+						          "y": {"scale": "y", "field": "age", "band": 0.5},
+						          "text": {"field": "age"},
+						          "baseline": {"value": "middle"},
+						          "align": {"value": "center"},
+						          "fill": {"value": "#000"}
+						        }
+						      }
+						    },
+						    {
+						      "type": "group",
+
+						      "encode": {
+						        "update": {
+						          "x": {"value": 0},
+						          "height": {"signal": "height"}
+						        }
+						      },
+
+						      "scales": [
+						        {
+						          "name": "x",
+						          "type": "linear",
+						          "range": [{"signal": "chartWidth"}, 0],
+						          "nice": true, "zero": true,
+						          "domain": {"data": "population", "field": "people"}
+						        }
+						      ],
+
+						      "axes": [
+						        {"orient": "bottom", "scale": "x", "format": "s", "title": "Females"}
+						      ],
+
+						      "marks": [
+						        {
+						          "type": "rect",
+						          "from": {"data": "females"},
+						          "encode": {
+						            "enter": {
+						              "x": {"scale": "x", "field": "people"},
+						              "x2": {"scale": "x", "value": 0},
+						              "y": {"scale": "y", "field": "age"},
+						              "height": {"scale": "y", "band": 1, "offset": -1},
+						              "fillOpacity": {"value": 0.6},
+						              "fill": {"scale": "c", "field": "sex"}
+						            }
+						          }
+						        }
+						      ]
+						    },
+						    {
+						      "type": "group",
+
+						      "encode": {
+						        "update": {
+						          "x": {"signal": "chartWidth + chartPad"},
+						          "height": {"signal": "height"}
+						        }
+						      },
+
+						      "scales": [
+						        {
+						          "name": "x",
+						          "type": "linear",
+						          "range": [0, {"signal": "chartWidth"}],
+						          "nice": true, "zero": true,
+						          "domain": {"data": "population", "field": "people"}
+						        }
+						      ],
+
+						      "axes": [
+						        {"orient": "bottom", "scale": "x", "format": "s", "title": "Males"}
+						      ],
+
+						      "marks": [
+						        {
+						          "type": "rect",
+						          "from": {"data": "males"},
+						          "encode": {
+						            "enter": {
+						              "x": {"scale": "x", "field": "people"},
+						              "x2": {"scale": "x", "value": 0},
+						              "y": {"scale": "y", "field": "age"},
+						              "height": {"scale": "y", "band": 1, "offset": -1},
+						              "fillOpacity": {"value": 0.6},
+						              "fill": {"scale": "c", "field": "sex"}
+						            }
+						          }
+						        }
+						      ]
+						    }
+						  ]
+						}
+						var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+						vegaEmbed("#SecondVis", spec, opt);
+					</script>
+					<p style="font-size: 30px">
+						This is the U.S. population recorded from 1850 to 2000 by genders on the left and right and the age in the middle. Interesting to see that more people are able to live longer as to scroll more to the current date. Makes sense as we progress in our medical sciences being able to cure diseases and other things to all humans to live longer.
+					</p>
+				</section>
+					
+				<section>
+					<h3>This is how I did the previous slide highlighting how I had to changed the id name then what data I used from the Vega examples.</h3>
+					<pre><code data-trim data-line-numbers=1|7|4-8>
+						<section>
+							< div id="SecondVis"></ div>
+							< script type="text/javascript">
+								var spec = {
+									"data": [
+									    {
+									      "name": "population",
+									      "url": "https://vega.github.io/vega-datasets/data/population.json"
+									    },
+								}
+							</ script>
+					</code></pre>
+				</section>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/notes/notes.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
