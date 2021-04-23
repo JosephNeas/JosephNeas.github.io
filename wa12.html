@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Week 14: In-Class Exercises</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/moon.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+
+		<!-- Loading Vega-->
+		<script src="https://cdn.jsdelivr.net/npm/vega@5.19.1"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.0.0"></script>
+		<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.15.1"></script>
+
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<h2>Weekly Assignment 12</h2>
+					<p>By Joseph Neas</p>
+				</section>
+				<section>
+					<section>
+						<h2>First Visualization</h2>
+						<div id="vis1"></div>
+						<script type="text/javascript">
+							var spec = {
+							  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+							  "config": {
+							    "view": {
+							      "continuousHeight": 300,
+							      "continuousWidth": 400
+							    }
+							  },
+							  "data": {
+							    "url": "https://vega.github.io/vega-datasets/data/crimea.json"
+							  },
+							  "config": {
+							  	"font": "Cursive",
+							  	"axis": {
+							  		"gridColor": "#000000",
+							  	},
+							  },
+							  "width": 800,
+							  "encoding": {
+							    "x": {
+							      "field": "date",
+							      "type": "Temporal",
+							      "title": "Date",
+							      "axis":{
+									"labelFontSize": 15,
+									"titleFontSize": 15
+							    	}
+							    },
+							    "y": {
+							      "field": "wounds",
+							      "type": "quantitative",
+							      "title": "Number of Wounded",
+							      "axis":{
+									"labelFontSize": 15,
+									"titleFontSize": 15
+							    	}
+							    }
+							  },
+							  "mark": {
+							  	"type": "bar",
+							  	"color": "red"
+							  } 
+							};  /* JSON dump of your chart's spec */
+							var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+							vegaEmbed("#vis1", spec, opt);
+							</script>
+							<p>
+								This visualization is showing the amount of people wounded in the Crimea War that went on from 1854-1856 by month. Looks like the peak was in November which correlates to a major battle called the Battle of Sinop that took place in the Crimea War.
+							</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>First Visualization Important Code</h2>
+					<pre><code data-trim data-line-numbers=|2-6|8-11>
+						...
+						"config": {
+						  	"font": "Cursive",
+						  	"axis": {
+						  		"gridColor": "#000000",
+						  	}
+						...
+						"mark": {
+						  	"type": "bar",
+						  	"color": "red"
+						  } 
+					</code></pre>
+					<p style="text-indent: 50px;">
+						On this graph I changed the font to cursive to give it a different look. I also changed the grid color to a dark black and the bars to red.
+					</p>
+				</section>
+
+				<section>
+					<section>
+						<h2>Second Visualization</h2>
+						<div id="vis2"></div>
+						<script type="text/javascript">
+							var spec = {
+							  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+							  "config": {
+							    "view": {
+							      "continuousHeight": 300,
+							      "continuousWidth": 400
+							    }
+							  },
+							  "data": {
+							    "url": "https://vega.github.io/vega-datasets/data/crimea.json"
+							  },
+							  "config": {
+							  	"font": "Times New Roman"
+							  },
+							  "width": 1000,
+
+							"layer":[{
+								"mark": "line",
+								"encoding":{
+									"x":{
+										"field":"date",
+										"type":"temporal"
+									},
+									"y":{
+										"field":"wounds",
+										"type":"quantitative"
+									},
+									"color": {"value":"red"}
+								}
+							},{
+								"mark": "line",
+								"encoding":{
+									"x":{
+										"field":"date",
+										"type":"temporal"
+									},
+									"y":{
+										"field":"disease",
+										"type":"quantitative"
+									},
+									"color": {"value":"blue"}
+								}
+							},{
+								"mark": "line",
+								"encoding":{
+									"x":{
+										"field":"date",
+										"type":"temporal"
+									},
+									"y":{
+										"field":"other",
+										"type":"quantitative"
+									},
+									"color": {"value":"purple"}
+								}
+							}] 
+							};  /* JSON dump of your chart's spec */
+							var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+							vegaEmbed("#vis2", spec, opt);
+							</script>
+							<p style="text-indent: 50px; font-size: 30px">
+								This graph shows the counts of wounds, diseases, and "other" injuries suffered in the Crimea war. Red is the amount of wounds, blue is the amount of diseases, and purple is the mount of "other" injuries suffered. Seems that the diseases had the highest count daily. This makes sense as this war took place in the 18 hundreds where medicine wasn't as good as it is now.
+							</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>Second Visualization Important Code</h2>
+					<pre><code data-trim data-line-numbers=|2-15|15-28|29-41>
+						...
+						"layer":[{
+								"mark": "line",
+								"encoding":{
+									"x":{
+										"field":"date",
+										"type":"temporal"
+									},
+									"y":{
+										"field":"wounds",
+										"type":"quantitative"
+									},
+									"color": {"value":"red"}
+								}
+							},{
+								"mark": "line",
+								"encoding":{
+									"x":{
+										"field":"date",
+										"type":"temporal"
+									},
+									"y":{
+										"field":"disease",
+										"type":"quantitative"
+									},
+									"color": {"value":"blue"}
+								}
+							},{
+								"mark": "line",
+								"encoding":{
+									"x":{
+										"field":"date",
+										"type":"temporal"
+									},
+									"y":{
+										"field":"other",
+										"type":"quantitative"
+									},
+									"color": {"value":"purple"}
+								}
+							}] 
+					</code></pre>
+					<p style="text-indent: 50px; font-size: 25px">
+						I highlighted how I made each individual line on the graph. The first part I highlighted is how I got the amount wounded from the crimea.json. I made a new mark then made an individual "x" and "y" for the wounds. I then changed the color to be red. I did the same thing for the other two lines in the graph, making a new mark and giving specific "x"'s and "y"'s for that line.
+					</p>
+				</section>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: 'h/v',
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealHighlight ]
+			});
+		</script>
+	</body>
+</html>

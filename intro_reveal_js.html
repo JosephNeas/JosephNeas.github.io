@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/black.min.css" id="theme">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					Here is my animation slide
+					<p style="font-weight:bold;">Custom text styles</p>
+					<img src="https://media.giphy.com/media/MF8H7YGMlwSm4/giphy.gif">
+				</section>
+				<section>This is my emoji slide
+				<p style="font-size:100px">&#129409;</p>
+				</section>
+				
+				<section>
+					<section>
+						<h3> Vertical Slides </h3>
+						<p>
+							I will be showing you how to do vertical slides. This is a useful tool to group together same topics such as this into a vertical stack that won't fit in with the next horizontal slide. It allows for more organization within a presentation.
+						</p>
+					</section>
+
+					<section>
+						<h3>This is how I made the vertical slides</h3>
+						<pre><code data-trim data-line-numbers=2-4><script type="text/template">
+							<section>
+								<section>
+									<!-- First Vertical Slide -->						
+								</section>
+								<section>
+									<!-- Second Vertical Slide -->
+								</section>
+							</section>
+							</script>
+						</code></pre>
+						<p>
+							What I am highlighting above is this slide 
+						</p>
+					</section>
+
+					<section>
+						<h3>
+							Here is my second vertical slide
+						</h3>
+						<pre><code data-trim data-line-numbers=5-7><script type="text/template">
+							<section>
+								<section>
+									<!-- First Vertical Slide -->						
+								</section>
+								<section>
+									<!-- Second Vertical Slide -->
+								</section>
+							</section>
+							</script>
+						</code></pre>
+						<p>
+							To do vertical slides, all you have to do is put a "section" in block of one "section"
+						</p>
+						<p>
+							Here is the documentaion for <a href="https://revealjs.com/vertical-slides/">vertical slides</a>
+						</p>
+					</section>
+
+					
+				</section>
+					
+				<section data-transition="convex">
+					<h3>
+						Here is where I tested different fragments.
+					</h3>
+					<p class="fragment">Fade in</p>
+					<p class="fragment fade-in-then-semi-out">Semi-ed</p>
+					<span class="fragment fade-in">
+						<span class="fragment highlight-red">
+							<span class="fragment shrink">
+								<span class="fragment fade-out">
+						    	BIG BOY RED with a fade in and out
+						    	</span>
+						    </span>
+						</span>
+					</span>
+				</section>
+			</div>
+		</div>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/notes/notes.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/markdown/markdown.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/highlight.min.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
