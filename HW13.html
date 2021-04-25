@@ -65,40 +65,8 @@
               var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
               vegaEmbed("#vis", spec, opt);
             </script>
-          <h5 style="font-family: sans-serif; font-size: 24px" > Le Gamestop </h5>
-            <div id="vis1"></div>
-            <script type="text/javascript">
-              var spec = {  
-                  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
-                  "config": {
-                    "view": {
-                      "continuousHeight": 300,
-                      "continuousWidth": 400,
-                    }
-                  },
-                  "width" : 1000,
-                  "height": 300,
-                  "data": {
-                    "url": "/gme.csv"
-                  },
-                  "mark": "line",
-                  "encoding": {
-                    "x": {
-                      "field": "Date",
-                      "timeUnit": "yearmonthdate"
-                    },
-                    "y": {
-                      "field": "close",
-                      "type": "quantitative"
-                    }
-                  },
-                };  /* JSON dump of your chart's spec */
-              var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
-              vegaEmbed("#vis1", spec, opt);
-            </script>
           </div>
       </div>
-    </div>
     <div class="container" style="padding-top: 15px; font-family: sans-serif; font-size: 20px">
       <p style="text-indent: 50px">
         Crytocurrency is becoming more and more main stream for the general public who are looking to invest their money into something besides stocks. Bitcoin, back in 2017 generated a lot of buzz around crytpo with an individual bitcoin costing around $20,000. People saw the potential of getting rich in crypto flooding people into the market. With this new interest and buzz with people looking at cryto, a load of other currencies and coins were generated. One of those being DogeCoin.</p>
@@ -113,17 +81,50 @@
     </div>
     <div class="container" style="padding-top: 15px; font-family: sans-serif; font-size: 20px">
       <p style="text-indent: 50px">
-        As the Internet continues to evolve, more and more power become available to the people. This meme stock has been able to generate a marker cap of 50 million, being bigger than some companies, just through the power of people. We have seen what a community of people can do when they come together. We saw this with GameStop as well earlier in the year. This was done through the power of common people coming together to try and make money like the 1% can. 
+        As the Internet continues to evolve, more and more power become available to the people. This meme stock has been able to generate a marker cap of 50 million, being bigger than some companies, just through the power of people. We have seen what a community of people can do when they come together. We saw this with GameStop as well earlier in the year. The excitement of Gamestop and its rally stemmed from many events in the past where wall street screwed over the common person and gets away with it. Multi-billionaires made ridiculous plays over shorting Gamestop.People banned together and tried to make them pay for it. This was done through the power of common people coming together to try and make money like the 1% can. 
       </p>
     </div>
-    <div class="container" style="padding-top: 15px; padding-bottom: 150px; font-family: sans-serif; font-size: 20px">
+    <div class="container" style="padding-top: 15px; font-family: sans-serif; font-size: 20px">
       <p style="text-indent: 50px">
         Dogecoin is more then just a meme, more than just a coin, but the result of what can happen when communities come together. No such thing would ever have been able to happen before as we now have a platform to reach hundreds to thousands of others. This massive rally and sharing of information to one another is part of humanity looking out for all in it. 
       </p>
     </div>
 
-
-   
+    <div class="container" style="padding-bottom: 100px; padding-top: 25px;" >
+        <h5 style="font-family: sans-serif; font-size: 24px" > Le Gamestop </h5>
+          <div class="container">
+            <div id="vis1"></div>
+            <script type="text/javascript">
+              var spec = {  
+                  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                  "config": {
+                    "view": {
+                      "continuousHeight": 300,
+                      "continuousWidth": 400,
+                    }
+                  },
+                  "width" : 1000,
+                  "height": 300,
+                  "data": {
+                    "url": "https://raw.githubusercontent.com/JosephNeas/JosephNeas.github.io/master/gme.csv"
+                  },
+                  "mark": "line",
+                  "encoding": {
+                    "x": {
+                      "field": "Date",
+                      "timeUnit": "yearmonthdate"
+                    },
+                    "y": {
+                      "field": "Close",
+                      "type": "quantitative"
+                    }
+                  },
+                };  /* JSON dump of your chart's spec */
+              var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+              vegaEmbed("#vis1", spec, opt);
+            </script>
+          </div>
+      </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
