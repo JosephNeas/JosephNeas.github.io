@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/theme/moon.min.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.1.0/plugin/highlight/monokai.min.css" id="highlight-theme">
+    <script src="https://cdn.jsdelivr.net/npm/vega@3"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@3"></script>
+
+    <title>HW13 | Joseph Neas</title>
+
+  </head>
+  <body> 
+
+    <div class="container-fluid mt-4">
+      <nav class="navbar fixed-top shadow-sm p-3 mb-5 bg-white rounded justify-content-center">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a class="nav-link active" style="font-family: sans-serif" href="HW13.html">HW13</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="container" style="padding-top: 100px;" >
+        <h5 style="font-family: sans-serif; font-size: 24px" > Le DogeCoin </h5>
+          <div class="container">
+            <div id="vis"></div>
+            <script type="text/javascript">
+              var spec = {  
+                  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                  "config": {
+                    "view": {
+                      "continuousHeight": 300,
+                      "continuousWidth": 400,
+                    }
+                  },
+                  "width" : 1000,
+                  "height": 300,
+                  "data": {
+                    "url": "https://pkgstore.datahub.io/cryptocurrency/dogecoin/dogecoin_csv/data/492e9a6143d017e8eb08c08ae0006b34/dogecoin_csv.csv"
+                  },
+                  "mark": "line",
+                  "encoding": {
+                    "x": {
+                      "field": "date",
+                      "timeUnit": "yearmonthdate"
+                    },
+                    "y": {
+                      "field": "price(USD)",
+                      "type": "quantitative"
+                    }
+                  },
+                };  /* JSON dump of your chart's spec */
+              var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+              vegaEmbed("#vis", spec, opt);
+            </script>
+          <h5 style="font-family: sans-serif; font-size: 24px" > Le Gamestop </h5>
+            <div id="vis1"></div>
+            <script type="text/javascript">
+              var spec = {  
+                  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+                  "config": {
+                    "view": {
+                      "continuousHeight": 300,
+                      "continuousWidth": 400,
+                    }
+                  },
+                  "width" : 1000,
+                  "height": 300,
+                  "data": {
+                    "url": "/gme.csv"
+                  },
+                  "mark": "line",
+                  "encoding": {
+                    "x": {
+                      "field": "Date",
+                      "timeUnit": "yearmonthdate"
+                    },
+                    "y": {
+                      "field": "close",
+                      "type": "quantitative"
+                    }
+                  },
+                };  /* JSON dump of your chart's spec */
+              var opt = {"renderer": "canvas", "actions": false};  /* Options for the embedding */
+              vegaEmbed("#vis1", spec, opt);
+            </script>
+          </div>
+      </div>
+    </div>
+    <div class="container" style="padding-top: 15px; font-family: sans-serif; font-size: 20px">
+      <p style="text-indent: 50px">
+        Crytocurrency is becoming more and more main stream for the general public who are looking to invest their money into something besides stocks. Bitcoin, back in 2017 generated a lot of buzz around crytpo with an individual bitcoin costing around $20,000. People saw the potential of getting rich in crypto flooding people into the market. With this new interest and buzz with people looking at cryto, a load of other currencies and coins were generated. One of those being DogeCoin.</p>
+    </div>
+    <div class="container" style="padding-top: 15px; font-family: sans-serif; font-size: 20px">
+      <p style="text-indent: 50px">
+        Dogecoin is a cryptocurrency that was made because of a meme and gained popularity for being so. Doge was became a very popular meme in 2013. Many memes were generated using this picture of a dog faces that looked a little bit spooked. It took over social media with it being one of the most popular memes to this date. Unlike most memes, that die and may occasionally resurface, dogecoin has the potential to live forever. It can do this because of its recent popularity in media drawing enough people to invest into it. It has become so popular with  moguls like Elon Musk <a href="https://twitter.com/elonmusk/status/1382552587099062272?lang=en">tweeting</a> about it and having a major subreddit with over a millions followers called <a href="https://www.reddit.com/r/dogecoin/">Dogecoin</a> further hyping it up.</p>
+    </div>
+    <div class="container" style="padding-top: 15px; font-family: sans-serif; font-size: 20px">
+      <p style="text-indent: 50px">
+        In just the past year doge has gone from trading less than 1 cent to trading to more than .40 cents per coin. This means people are making an insane ROI with their investments into this meme stock. With such a low entry cost and such a high potential ROI, many people are starting to look at Dogecoin as a place to invest their money. Doge started a place to invest a couple of bucks just to chuckle and to say that you own dogecoin, but now is making people millionaires. This and other crytocurrencies are becoming the future of investing, potentially even the currency of the future. </p>
+    </div>
+    <div class="container" style="padding-top: 15px; font-family: sans-serif; font-size: 20px">
+      <p style="text-indent: 50px">
+        As the Internet continues to evolve, more and more power become available to the people. This meme stock has been able to generate a marker cap of 50 million, being bigger than some companies, just through the power of people. We have seen what a community of people can do when they come together. We saw this with GameStop as well earlier in the year. This was done through the power of common people coming together to try and make money like the 1% can. 
+      </p>
+    </div>
+    <div class="container" style="padding-top: 15px; padding-bottom: 150px; font-family: sans-serif; font-size: 20px">
+      <p style="text-indent: 50px">
+        Dogecoin is more then just a meme, more than just a coin, but the result of what can happen when communities come together. No such thing would ever have been able to happen before as we now have a platform to reach hundreds to thousands of others. This massive rally and sharing of information to one another is part of humanity looking out for all in it. 
+      </p>
+    </div>
+
+
+   
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
